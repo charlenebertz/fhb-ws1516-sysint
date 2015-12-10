@@ -1,0 +1,5 @@
+.idea/encodings.xml
+*.xml
+.idea/fhb-ws1516-sysint.iml
+building_script.bat
+*.pyc
