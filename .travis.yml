@@ -4,5 +4,5 @@ python:
 install:
   - pip install boto3
   - pip install bottle
-script: python unittest/python/unit_test.py
+script: python src/unittest/python/unit_tests.py
 sudo: required
