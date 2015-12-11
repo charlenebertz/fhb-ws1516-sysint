@@ -1,7 +1,7 @@
 __author__ = "Charlene Bertz"
 
 import unittest
-import main.python.main as mainfile
+import src.main.python.main as mainfile
 
 
 class UnitTest(unittest.TestCase):
