@@ -1,21 +1,18 @@
 __author__ = "Charlene Bertz"
 
 import unittest
-try:
-    from ...main.python.main import *
-except:
-    from src.main.python.main import *
+import main.python.main as mainfile
 
 
 class UnitTest(unittest.TestCase):
     def test_pruefeBenutzerDaten(self):
-        self.assertTrue(pruefeBenutzerdaten("studium","default"))
+        self.assertTrue(mainfile.pruefeBenutzerdaten("studium","default"))
 
     def test_pruefeCookies(self):
-        self.assertIsNone(pruefeCookies(""))
+        self.assertIsNone(mainfile.pruefeCookies(""))
 
     def test_erstelleInstanz(self):
-        self.assertIsNotNone(erstelleInstanz())
+        self.assertIsNotNone(mainfile.erstelleInstanz())
 
     def test_meldeBenutzerAn(self):
-        self.assertIsNotNone(meldeBenutzerAn())
+        self.assertIsNotNone(mainfile.meldeBenutzerAn())

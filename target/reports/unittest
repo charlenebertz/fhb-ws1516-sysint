@@ -1,10 +1,42 @@
 
 Running tests...
 ----------------------------------------------------------------------
+EEEE
+======================================================================
+ERROR [0.001s]: test_erstelleInstanz (unit_tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Charlene\Documents\fhb-ws1516-sysint\src/unittest/python\unit_tests.py", line 15, in test_erstelleInstanz
+    self.assertIsNotNone(main.erstelleInstanz())
+NameError: name 'main' is not defined
+
+======================================================================
+ERROR [0.000s]: test_meldeBenutzerAn (unit_tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Charlene\Documents\fhb-ws1516-sysint\src/unittest/python\unit_tests.py", line 18, in test_meldeBenutzerAn
+    self.assertIsNotNone(main.meldeBenutzerAn())
+NameError: name 'main' is not defined
+
+======================================================================
+ERROR [0.001s]: test_pruefeBenutzerDaten (unit_tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Charlene\Documents\fhb-ws1516-sysint\src/unittest/python\unit_tests.py", line 9, in test_pruefeBenutzerDaten
+    self.assertTrue(main.pruefeBenutzerdaten("studium","default"))
+NameError: name 'main' is not defined
+
+======================================================================
+ERROR [0.000s]: test_pruefeCookies (unit_tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Charlene\Documents\fhb-ws1516-sysint\src/unittest/python\unit_tests.py", line 12, in test_pruefeCookies
+    self.assertIsNone(main.pruefeCookies(""))
+NameError: name 'main' is not defined
 
 ----------------------------------------------------------------------
-Ran 0 tests in 0.000s
+Ran 4 tests in 0.002s
 
-OK
+FAILED (errors=4)
 
 Generating XML reports...
