@@ -195,6 +195,7 @@ def erstelleInstanz():
     instanceType = request.query.instanceType or None
 
     if not pruefeCookies(request.get_cookie("account",secret=secret)):
+        print("fehlerhafter cookie")
         return erstelleHTML(fehlercode)
 
     if id and userData and securityGroups:
