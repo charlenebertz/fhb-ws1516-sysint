@@ -3,7 +3,7 @@ __author__ = "Charlene Bertz"
 from unittest import TestCase
 from moto import mock_s3
 import boto3
-import src.main.python.main as mainfile
+import main as mainfile
 
 class Unittest(TestCase):
     def test_erstelleAnwendungsHTML(self):
