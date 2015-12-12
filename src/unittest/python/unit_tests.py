@@ -1,18 +1,8 @@
 __author__ = "Charlene Bertz"
 
-import unittest
-import src.main.python.main as mainfile
+from unittest import TestCase
+from main import erstelleAnmeldungsHTML
 
-
-class UnitTest(unittest.TestCase):
-    def test_pruefeBenutzerDaten(self):
-        self.assertTrue(mainfile.pruefeBenutzerdaten("studium","default"))
-
-    def test_pruefeCookies(self):
-        self.assertIsNone(mainfile.pruefeCookies(""))
-
-    def test_erstelleInstanz(self):
-        self.assertIsNotNone(mainfile.erstelleInstanz())
-
-    def test_meldeBenutzerAn(self):
-        self.assertIsNotNone(mainfile.meldeBenutzerAn())
+class Unittest(TestCase):
+    def test_erstelleAnwendungsHTML(self):
+        self.assertIsNotNone(erstelleAnmeldungsHTML())

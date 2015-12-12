@@ -6,10 +6,11 @@ import config
 import subprocess
 
 import json
-aws = config.AWSAnmeldung("studium","default")
-
-
-session = boto3.Session(aws_access_key_id=aws.aws_access_key_id,aws_secret_access_key=aws.aws_secret_access_key,region_name=aws.region_name)
+try:
+    aws = config.AWSAnmeldung("studium","default")
+    session = boto3.Session(aws_access_key_id=aws.aws_access_key_id,aws_secret_access_key=aws.aws_secret_access_key,region_name=aws.region_name)
+except:
+    session = boto3.Session(aws_access_key_id="Dummy",aws_secret_access_key="Dummy",region_name="us-west-1")
 ec2 = session.resource('ec2')
 ec2Client = session.client('ec2')
 s3 = session.resource('s3')
@@ -403,8 +404,9 @@ def holeSchluesselNamen():
 
 
 #instance = ec2.create_instances(ImageId="ami-2cecff4d",MinCount=1,MaxCount=1,InstanceType='t2.micro',SecurityGroupIds=['standart'],KeyName="fhb-aws")
-port = 8080
-hostname = "127.0.0.1"
-run(host=hostname, port=port)
+if __name__ == '__main__':
+    port = 8080
+    hostname = "127.0.0.1"
+    run(host=hostname, port=port)
 
 
