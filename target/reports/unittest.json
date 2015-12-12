@@ -1,22 +1,5 @@
 {
-  "errors": [
-    {
-      "test": "unit_tests.UnitTest.test_erstelleInstanz",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Charlene\\Documents\\fhb-ws1516-sysint\\src/unittest/python\\unit_tests.py\", line 15, in test_erstelleInstanz\n    self.assertIsNotNone(main.erstelleInstanz())\nNameError: name 'main' is not defined\n"
-    },
-    {
-      "test": "unit_tests.UnitTest.test_meldeBenutzerAn",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Charlene\\Documents\\fhb-ws1516-sysint\\src/unittest/python\\unit_tests.py\", line 18, in test_meldeBenutzerAn\n    self.assertIsNotNone(main.meldeBenutzerAn())\nNameError: name 'main' is not defined\n"
-    },
-    {
-      "test": "unit_tests.UnitTest.test_pruefeBenutzerDaten",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Charlene\\Documents\\fhb-ws1516-sysint\\src/unittest/python\\unit_tests.py\", line 9, in test_pruefeBenutzerDaten\n    self.assertTrue(main.pruefeBenutzerdaten(\"studium\",\"default\"))\nNameError: name 'main' is not defined\n"
-    },
-    {
-      "test": "unit_tests.UnitTest.test_pruefeCookies",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Charlene\\Documents\\fhb-ws1516-sysint\\src/unittest/python\\unit_tests.py\", line 12, in test_pruefeCookies\n    self.assertIsNone(main.pruefeCookies(\"\"))\nNameError: name 'main' is not defined\n"
-    }
-  ],
+  "errors": [],
   "failures": [],
-  "tests-run": 4
+  "tests-run": 1
 }

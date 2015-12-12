@@ -6,10 +6,11 @@ import config
 import subprocess
 
 import json
-aws = config.AWSAnmeldung("studium","default")
-
-
-session = boto3.Session(aws_access_key_id=aws.aws_access_key_id,aws_secret_access_key=aws.aws_secret_access_key,region_name=aws.region_name)
+try:
+    aws = config.AWSAnmeldung("studium","default")
+    session = boto3.Session(aws_access_key_id=aws.aws_access_key_id,aws_secret_access_key=aws.aws_secret_access_key,region_name=aws.region_name)
+except:
+    session = boto3.Session(aws_access_key_id="Dummy",aws_secret_access_key="Dummy",region_name="us-west-1")
 ec2 = session.resource('ec2')
 ec2Client = session.client('ec2')
 s3 = session.resource('s3')
@@ -40,7 +41,7 @@ def generiereAnsicht():
     pruefeCookies(request.get_cookie("account",secret=secret))
 
     if  not pruefeCookies(request.get_cookie("account",secret=secret)):
-        return fehlercode
+        return erstelleHTML(fehlercode)
 
     if befehlInstanz and idInstanz:
         if befehlInstanz =="starten":
@@ -59,7 +60,7 @@ def generiereAnsicht():
         function getImageName(id) {
             var image = prompt("Please enter image name", "");
             if (image != null) {
-                window.location.href ='/E2/index?befehl=erstelleImage&parameterInstanz='+image+'&id='+id;
+                window.location.href ='/E2/index?befehl=erstelleImage&parameter='+image+'&id='+id;
             }
         }
     </script>
@@ -91,25 +92,33 @@ def generiereAnsicht():
         public_dns_name = instance.public_dns_name
         if not public_dns_name:
             public_dns_name = ""
+        tag = ""
+        if instance.tags:
+            tag = instance.tags[0]['Value']
+
+#        print(instance.tags)
 
         html += """
         <tr class="list_instance">
             <td>"""+instance.id+"""</td>
-            <td>"""+instance.tags[0]['Value']+"""</td>
+            <td>"""+tag+"""</td>
             <td>"""+instance.instance_type+"""</td>
             <td>"""+instance.state['Name']+"""</td>
             <td>"""+public_ip_address+"""</td>
             <td>"""+public_dns_name+"""</td>
             <td>"""+instance.image_id+"""</td>
+
             <td>
                 <ul>
         """
 
+
         #loop to list all used security groups
+
 
         if len(instance.security_groups) > 1:
             for zeile in instance.security_groups:
-                  html += """
+                html += """
                         <li>{0}</li>
                     """.format(zeile["GroupName"])
         elif len(instance.security_groups) == 1:
@@ -117,6 +126,10 @@ def generiereAnsicht():
             html += """
                         <li>{0}</li>
                     """.format(zeile["GroupName"])
+        else:
+            html += """
+                        <li> </li>
+                    """
 
         #save_image-icon does not do anything right now
         html += """
@@ -182,7 +195,7 @@ def erstelleInstanz():
     instanceType = request.query.instanceType or None
 
     if not pruefeCookies(request.get_cookie("account",secret=secret)):
-        return fehlercode
+        return erstelleHTML(fehlercode)
 
     if id and userData and securityGroups:
         if instanceType:
@@ -196,19 +209,27 @@ def erstelleInstanz():
     <form>
         <table>
             <tr>
-                <td>ID</td>
-                <td><input type='text' name='id'></td>
-            </tr>
-            <tr>
                 <td>Name</td>
                 <td><input type='text' name='userData'></td>
+            </tr>
+     """
+    html += """<tr>
+                <td>Operating Systems</td>
+                <td>
+                    <select name="id">
+                    <option value=ami-f0091d91>Amazon Linux</option>
+                    <option value=ami-4dbf9e7d>Redhat Linux</option>
+                    <option value=ami-d7450be7>Suse Linux</option>
+                    <option value=ami-5189a661>Ubuntu Linux</option>
+                    <option value=ami-f0091d91>Microsoft Server 2012</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Instance Type</td>
                 <td>
                     <select name="instanceType">
     """
-
     #loop to list instance types that can be started
     for zeile in instanzListe:
        html += """
@@ -227,15 +248,12 @@ def erstelleInstanz():
     """
 
     #loop to list security groups that can be selected
-    for instance in ec2.instances.all():
-        if len(instance.security_groups) > 1:
-            tmpListe = []
-            for zeile in instance.security_groups:
-                if  not zeile["GroupName"] in tmpListe:
-                    for eintrag in zeile["GroupName"].split(","):
-                        tmpListe.append(zeile["GroupName"])
-                        html += """
-                        <option value="""+eintrag+""">"""+eintrag+"""</option>
+    tmpListe = []
+    for zeile in ec2.security_groups.all():
+        if not zeile.group_name in tmpListe:
+            tmpListe.append(zeile.group_name)
+            html += """
+                        <option value="""+zeile.group_name+""">"""+zeile.group_name+"""</option>
     """
 
 
@@ -246,7 +264,7 @@ def erstelleInstanz():
             <tr>
                 <td>Key Pair</td>
                 <td>
-                    <select name="keyPair">
+                    <select name="keyName">
 
     """
 
@@ -373,8 +391,10 @@ def terminateInstanz(id):
 def createImage(id,name):
     ec2Client.create_image(InstanceId=id,Name=name)
 
-def createInstanz(id,userData,securityGroups,keyName,countMin=1,countmax=1,instanceType='t1.micro'):
-    ec2Client.create_instances(ImageId=id,UserData=userData,SecurityGroupIds=securityGroups,MinCount=countMin,MaxCount=countmax,InstanceType=instanceType,KeyName=keyName)
+def createInstanz(id,userdata,securityGroups,keyName,countMin=1,countmax=1,instanceType='t2.micro'):
+    instanz = ec2.create_instances(ImageId=id,SecurityGroupIds=[securityGroups],MinCount=countMin,MaxCount=countmax,InstanceType=instanceType,KeyName=keyName)
+    if instanz:
+        instanz[0].create_tags(Tags=[{'Key':'Name','Value':userdata}])
 
 def holeSchluesselNamen():
     returnliste = []
@@ -383,8 +403,10 @@ def holeSchluesselNamen():
     return returnliste
 
 
-port = 8080
-hostname = "127.0.0.1"
-run(host=hostname, port=port)
+#instance = ec2.create_instances(ImageId="ami-2cecff4d",MinCount=1,MaxCount=1,InstanceType='t2.micro',SecurityGroupIds=['standart'],KeyName="fhb-aws")
+if __name__ == '__main__':
+    port = 8080
+    hostname = "127.0.0.1"
+    run(host=hostname, port=port)
 
 
