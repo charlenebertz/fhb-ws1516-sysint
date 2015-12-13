@@ -1,17 +1,19 @@
 __author__ = 'Charlene Bertz'
 
 from unittest import TestCase
-import boto3
-from moto import mock_s3
-from main import pruefeCookies
-import json
+from time import sleep
+from main import run_server
+import threading
+import requests
 
-class ComponenTest(TestCase):
+class IntegrationTest(TestCase):
+    def teste_AnmeldungUndErstelleInstanz(self):
+        backGroundServer = threading.Thread(target=run_server, daemon=True)
+        backGroundServer.start()
+        sleep(2)
+        assert backGroundServer.is_alive()
+        testRequest1 = requests.get('http://127.0.0.1:8080/E2/index')
+        assert testRequest1.status_code == 200
+        assert testRequest1.text.find('Fehler 404') is not None
 
-    @mock_s3
-    def test_pruefeCookies(self):
-        s3 = boto3.resource('s3')
-        s3.create_bucket(Bucket='fhb-bu')
-        s3.Object('fhb-bu', 'passwd').put(Body='student:passwd')
-        assert pruefeCookies(json.dumps({'benutzer':'student','password':'passwd'})) == True
-        assert pruefeCookies(json.dumps({'benutzer':'lehrer','password':'Riesenknall2012'})) == False
+

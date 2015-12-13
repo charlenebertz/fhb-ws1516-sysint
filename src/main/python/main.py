@@ -403,11 +403,16 @@ def holeSchluesselNamen():
         returnliste.append(zeile['KeyName'])
     return returnliste
 
-
-#instance = ec2.create_instances(ImageId="ami-2cecff4d",MinCount=1,MaxCount=1,InstanceType='t2.micro',SecurityGroupIds=['standart'],KeyName="fhb-aws")
-if __name__ == '__main__':
+def run_server():
     port = 8080
     hostname = "127.0.0.1"
     run(host=hostname, port=port)
+
+#instance = ec2.create_instances(ImageId="ami-2cecff4d",MinCount=1,MaxCount=1,InstanceType='t2.micro',SecurityGroupIds=['standart'],KeyName="fhb-aws")
+if __name__ == '__main__':
+    #port = 8080
+    #hostname = "127.0.0.1"
+    #run(host=hostname, port=port)
+    run_server()
 
 
