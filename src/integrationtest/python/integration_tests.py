@@ -5,7 +5,7 @@ from time import sleep
 try:
     from main import run_server
 except:
-    from main.python.main import run_server
+    from src.main.python.main import run_server
 import threading
 import requests
 
