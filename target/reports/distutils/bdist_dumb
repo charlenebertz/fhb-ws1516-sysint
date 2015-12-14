@@ -19,10 +19,10 @@ byte-compiling build\bdist.win-amd64\dumb\Python34\Lib\site-packages\config.py t
 byte-compiling build\bdist.win-amd64\dumb\Python34\Lib\site-packages\main.py to main.cpython-34.pyc
 running install_egg_info
 running egg_info
-writing fhb_ws1516_sysint.egg-info\PKG-INFO
 writing entry points to fhb_ws1516_sysint.egg-info\entry_points.txt
-writing top-level names to fhb_ws1516_sysint.egg-info\top_level.txt
 writing dependency_links to fhb_ws1516_sysint.egg-info\dependency_links.txt
+writing fhb_ws1516_sysint.egg-info\PKG-INFO
+writing top-level names to fhb_ws1516_sysint.egg-info\top_level.txt
 reading manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
 writing manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
 Copying fhb_ws1516_sysint.egg-info to build\bdist.win-amd64\dumb\Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info
