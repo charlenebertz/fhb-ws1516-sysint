@@ -3,10 +3,13 @@ __author__ = "Charlene Bertz"
 from unittest import TestCase
 from moto import mock_s3
 import boto3
+import sys
+import os
 try:
     import main as mainfile #path used by pybuilder
 except:
-    import main.python.main as mainfile #path used by travis
+    sys.path.append(os.path.abspath("/src/main/python"))
+    import main as mainfile #path used by travis
 
 class Unittest(TestCase):
     def test_erstelleAnwendungsHTML(self):
