@@ -2,10 +2,13 @@ __author__ = 'Charlene Bertz'
 
 from unittest import TestCase
 from time import sleep
+import sys
+import os
 try:
     from main import run_server
 except:
-    from src.main.python.main import run_server
+    sys.path.append(os.path.abspath("/src/main/python"))
+    import main as mainfile #path used by travis
 import threading
 import requests
 
