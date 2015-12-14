@@ -6,7 +6,7 @@ import boto3
 try:
     import main as mainfile #path used by pybuilder
 except:
-    import src.main.python.main as mainfile #path used by travis
+    import main.python.main as mainfile #path used by travis
 
 class Unittest(TestCase):
     def test_erstelleAnwendungsHTML(self):
