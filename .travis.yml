@@ -6,6 +6,7 @@ install:
   - pip install bottle
   - pip install HTTPretty==0.8.10
   - pip install moto
+  - pip install pybuilder
 script:
 #  - python src/unittest/python/unit_tests.py
 #  - python src/integrationtest/python/integration_tests.py
