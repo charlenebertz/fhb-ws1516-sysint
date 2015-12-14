@@ -10,5 +10,6 @@ install:
 script:
 #  - python src/unittest/python/unit_tests.py
 #  - python src/integrationtest/python/integration_tests.py
+  - pyb install_dependencies
   - pyb
 sudo: required
