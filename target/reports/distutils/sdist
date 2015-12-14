@@ -1,0 +1,44 @@
+running sdist
+running egg_info
+creating fhb_ws1516_sysint.egg-info
+writing dependency_links to fhb_ws1516_sysint.egg-info\dependency_links.txt
+writing top-level names to fhb_ws1516_sysint.egg-info\top_level.txt
+writing fhb_ws1516_sysint.egg-info\PKG-INFO
+writing entry points to fhb_ws1516_sysint.egg-info\entry_points.txt
+writing manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
+reading manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
+writing manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt
+
+running check
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: either (author and author_email) or (maintainer and maintainer_email) must be supplied
+
+creating fhb-ws1516-sysint-1.0.dev0
+creating fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+making hard links in fhb-ws1516-sysint-1.0.dev0...
+hard linking config.py -> fhb-ws1516-sysint-1.0.dev0
+hard linking main.py -> fhb-ws1516-sysint-1.0.dev0
+hard linking setup.py -> fhb-ws1516-sysint-1.0.dev0
+hard linking fhb_ws1516_sysint.egg-info\PKG-INFO -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+hard linking fhb_ws1516_sysint.egg-info\SOURCES.txt -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+hard linking fhb_ws1516_sysint.egg-info\dependency_links.txt -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+hard linking fhb_ws1516_sysint.egg-info\entry_points.txt -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+hard linking fhb_ws1516_sysint.egg-info\top_level.txt -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+hard linking fhb_ws1516_sysint.egg-info\zip-safe -> fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info
+Writing fhb-ws1516-sysint-1.0.dev0\setup.cfg
+creating dist
+creating 'dist\fhb-ws1516-sysint-1.0.dev0.zip' and adding 'fhb-ws1516-sysint-1.0.dev0' to it
+adding 'fhb-ws1516-sysint-1.0.dev0\config.py'
+adding 'fhb-ws1516-sysint-1.0.dev0\main.py'
+adding 'fhb-ws1516-sysint-1.0.dev0\PKG-INFO'
+adding 'fhb-ws1516-sysint-1.0.dev0\setup.cfg'
+adding 'fhb-ws1516-sysint-1.0.dev0\setup.py'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\dependency_links.txt'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\entry_points.txt'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\PKG-INFO'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\SOURCES.txt'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\top_level.txt'
+adding 'fhb-ws1516-sysint-1.0.dev0\fhb_ws1516_sysint.egg-info\zip-safe'
+removing 'fhb-ws1516-sysint-1.0.dev0' (and everything under it)

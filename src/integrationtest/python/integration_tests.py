@@ -2,7 +2,10 @@ __author__ = 'Charlene Bertz'
 
 from unittest import TestCase
 from time import sleep
-from main import run_server
+try:
+    from main import run_server
+except:
+    from src.main.python.main import run_server
 import threading
 import requests
 

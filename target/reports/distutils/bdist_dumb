@@ -1,0 +1,41 @@
+running bdist_dumb
+running build
+running build_py
+creating build
+creating build\lib
+copying config.py -> build\lib
+copying main.py -> build\lib
+installing to build\bdist.win-amd64\dumb
+running install
+running install_lib
+creating build\bdist.win-amd64
+creating build\bdist.win-amd64\dumb
+creating build\bdist.win-amd64\dumb\Python34
+creating build\bdist.win-amd64\dumb\Python34\Lib
+creating build\bdist.win-amd64\dumb\Python34\Lib\site-packages
+copying build\lib\config.py -> build\bdist.win-amd64\dumb\Python34\Lib\site-packages
+copying build\lib\main.py -> build\bdist.win-amd64\dumb\Python34\Lib\site-packages
+byte-compiling build\bdist.win-amd64\dumb\Python34\Lib\site-packages\config.py to config.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python34\Lib\site-packages\main.py to main.cpython-34.pyc
+running install_egg_info
+running egg_info
+writing fhb_ws1516_sysint.egg-info\PKG-INFO
+writing entry points to fhb_ws1516_sysint.egg-info\entry_points.txt
+writing top-level names to fhb_ws1516_sysint.egg-info\top_level.txt
+writing dependency_links to fhb_ws1516_sysint.egg-info\dependency_links.txt
+reading manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
+writing manifest file 'fhb_ws1516_sysint.egg-info\SOURCES.txt'
+Copying fhb_ws1516_sysint.egg-info to build\bdist.win-amd64\dumb\Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info
+running install_scripts
+creating 'C:\Users\Charlene\Documents\fhb-ws1516-sysint\target\dist\fhb-ws1516-sysint-1.0.dev0\dist\fhb-ws1516-sysint-1.0.dev0.win-amd64.zip' and adding '.' to it
+adding 'Python34\Lib\site-packages\config.py'
+adding 'Python34\Lib\site-packages\main.py'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\dependency_links.txt'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\entry_points.txt'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\PKG-INFO'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\SOURCES.txt'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\top_level.txt'
+adding 'Python34\Lib\site-packages\fhb_ws1516_sysint-1.0.dev0-py3.4.egg-info\zip-safe'
+adding 'Python34\Lib\site-packages\__pycache__\config.cpython-34.pyc'
+adding 'Python34\Lib\site-packages\__pycache__\main.cpython-34.pyc'
+removing 'build\bdist.win-amd64\dumb' (and everything under it)
