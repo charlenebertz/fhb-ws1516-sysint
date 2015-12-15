@@ -2,14 +2,13 @@ language: python
 python:
   - "3.4"
 install:
-#  - pip install boto3
-#  - pip install bottle
-#  - pip install HTTPretty==0.8.10
-#  - pip install moto
+  - pip install boto3
+  - pip install bottle
+  - pip install moto
   - pip install pybuilder
+  - pip install unittest-xml-reporting
 script:
 #  - python src/unittest/python/unit_tests.py
 #  - python src/integrationtest/python/integration_tests.py
-  - pyb install_dependencies
   - pyb
 sudo: required
